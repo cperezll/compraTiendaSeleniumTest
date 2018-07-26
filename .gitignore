@@ -1,0 +1,17 @@
+# Ide Helper
+_ide_helper.php
+
+# Laravel
+/vendor
+/node_modules
+.env
+
+# Composer
+composer.phar
+#composer.lock
+
+# Laravel4
+/bootstrap/compiled.php
+/log/*
+.env.*.php
+.env.php
