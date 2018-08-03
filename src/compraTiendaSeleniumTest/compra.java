@@ -33,6 +33,7 @@ public class compra {
 	private	String tagPhone;
 	private String miVehiculo="5469 BVP";
 	String actualTitle;
+	String precioPrimerProductoCompra;
 	
 	protected Integer presupuestoMaximoCompra = 1000; //1000€
 	
@@ -51,6 +52,7 @@ public class compra {
 		driver.close();
 	}
 	
+	@SuppressWarnings("unlikely-arg-type")
 	@Test
 	public void test() {
 		//Obtención de la url que conectaremos
@@ -113,14 +115,22 @@ public class compra {
 			
 			seriesOfActions.perform();
 			
-			driver.findElement(By.xpath("*[@id=\"results-autocomplete\"]/li/a")).click();
-			//driver.findElement(By.cssSelector("//input[@name='compatible-with-24085-' and @type='radio']")).click();	
-			driver.findElement(By.cssSelector("label[for*='restrict-compatible-with-vehicle']")).click();
+			//Clik enter para poder buscar el producto deseado
+			driver.findElement(By.xpath(".//input[@value='"+ productoBusquedaCaracteres +"']")).sendKeys(Keys.ENTER);
 			
-			//List<WebElement> li = driver.findElements(By.className("thumbnails"));
+			//Recorrido de la imagen deseada
+			precioPrimerProductoCompra = driver.findElement(By.cssSelector("//p[1]/strong")).getText();
+			driver.findElement(By.cssSelector("//article[1]/figure/figcaption/a[starts-with(@class,'ico-cam-circled')]")).click();
+			driver.findElement(By.id("add-to-cart-8769549")).click();
 			
-			//System.out.println(li.size());
 			
+//			if(driver.findElement(By.xpath(".//div[text()='18,57 € ']")).equals(precioPrimerProductoCompra)){
+//				System.out.println("La compra realizada es la correcta.");
+//			}else 
+//			{
+//				System.out.println("La compra realizada no es la correcta.");
+//			}
+//				
 			
 			while(true) {	}			
 		}
