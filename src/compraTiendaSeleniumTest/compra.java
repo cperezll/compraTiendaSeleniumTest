@@ -16,6 +16,7 @@ import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 
 import compraTiendaSeleniumTest.Piezas;
+import taimsToWait.Waits;
 
 public class compra {
 	
